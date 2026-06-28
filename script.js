@@ -175,36 +175,36 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("platformStarGroup").style.pointerEvents = "none"; // Lock stars
         successMsg.style.display = "block";
     });
-});
     // ==========================================================================
-// MOBILE HAMBURGER MENU & DRAWER NAVIGATION
+// FRESH INTERACTIVE HAMBURGER DRAWER ACTION CONTEXT ENGINE
 // ==========================================================================
 document.addEventListener("DOMContentLoaded", () => {
-    const hamburger = document.getElementById("hamburgerMenu");
-    const drawer = document.getElementById("servicesDrawer");
-    const closeDrawerBtn = document.getElementById("closeDrawer");
+    const triggerMenu = document.getElementById("hamburgerMenu");
+    const navigationDrawer = document.getElementById("servicesDrawer");
+    const exitDrawerBtn = document.getElementById("closeDrawer");
 
-    // Open drawer when clicking the hamburger menu
-    if (hamburger && drawer) {
-        hamburger.addEventListener("click", () => {
-            drawer.classList.add("active");
+    // Open Drawer Action
+    if (triggerMenu && navigationDrawer) {
+        triggerMenu.addEventListener("click", () => {
+            navigationDrawer.classList.add("active");
         });
     }
 
-    // Close drawer when clicking the "X" button
-    if (closeDrawerBtn && drawer) {
-        closeDrawerBtn.addEventListener("click", () => {
-            drawer.classList.remove("active");
+    // Close Drawer Action via 'X' Button
+    if (exitDrawerBtn && navigationDrawer) {
+        exitDrawerBtn.addEventListener("click", () => {
+            navigationDrawer.classList.remove("active");
         });
     }
 
-    // Optional: Close drawer if clicking anywhere outside the menu content
-    document.addEventListener("click", (e) => {
-        if (drawer && drawer.classList.contains("active")) {
-            if (!drawer.contains(e.target) && !hamburger.contains(e.target)) {
-                drawer.classList.remove("active");
+    // Close Drawer implicitly if clicking anywhere outside the open panel
+    document.addEventListener("click", (event) => {
+        if (navigationDrawer && navigationDrawer.classList.contains("active")) {
+            if (!navigationDrawer.contains(event.target) && !triggerMenu.contains(event.target)) {
+                navigationDrawer.classList.remove("active");
             }
         }
     });
 });
-}); // Absolute file end closure
+});
+  
