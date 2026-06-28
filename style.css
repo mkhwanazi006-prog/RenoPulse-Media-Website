@@ -1,0 +1,1314 @@
+/* ==========================================================================
+   1. GLOBAL RESET & BASE THEME SETUP
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #0b0b0b;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+.gold-text {
+    color: #c29438;
+}
+
+section[id] {
+    scroll-margin-top: 90px;
+}
+
+/* ==========================================================================
+   2. STICKY HEADER & INTEGRATED LOGO
+   ========================================================================== */
+.main-header {
+    background-color: #0b0b0b;
+    padding: 0px 40px !important;      
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    transition: top 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+
+    /* THE GRADIENT BLEND EFFECT */
+    /* This makes the header 100% solid for the top 80%, then smoothly fades out to fully transparent at the bottom edge */
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%);
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-image {
+    width: 65px; 
+    height: 65px; 
+    object-fit: contain; 
+    border-radius: 4px; 
+    filter: brightness(1.1) contrast(1.1); 
+    transition: transform 0.3s ease;
+}
+
+/* Keeps your scale dimensions perfectly intact while dropping center positioning */
+.brand-logo-img {
+    /* Dimensions & Scaling */
+    width: 320px !important;        
+    height: auto !important;        
+    transform: scale(1.15);         
+    
+    /* Positional Reset */
+    margin: 0 !important;                  
+    display: block !important;
+    
+    /* Blending Engines */
+    mix-blend-mode: screen;        
+    filter: brightness(1.2) contrast(1.05);
+    
+    transition: transform 0.3s ease;
+}
+
+.brand-logo-img:hover {
+    transform: scale(1.18);
+}
+
+/* ==========================================================================
+   3. NAVIGATION LINKS & HAMBURGER ENGINE
+   ========================================================================== */
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-item {
+    color: #aaaaaa;
+    text-decoration: none;
+    font-size: 15px;             
+    font-weight: 600;            
+    letter-spacing: 1px;         
+    position: relative;          
+    padding: 8px 0;              
+    transition: color 0.3s ease;
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;                  
+    width: 0;                   
+    height: 3px;                
+    background-color: #c29438;  
+    transition: width 0.3s ease, left 0.3s ease; 
+}
+
+.nav-item:hover::after,
+.nav-item.active::after {
+    width: 100%;                
+    left: 0;                    
+}
+
+.nav-item.active, 
+.nav-item:hover {
+    color: #c29438;
+}
+
+/* HAMBURGER INTERACTIVE HOVER ENGINE */
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;                   
+    cursor: pointer;
+    z-index: 1000;
+    padding: 10px;              /* Creates an invisible, larger hit-box area for easy clicking */
+    transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.menu-toggle span {
+    display: block;
+    width: 28px;                
+    height: 3px;                
+    background-color: #ffffff;  
+    border-radius: 2px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-toggle:hover span {
+    background-color: #c29438;  
+    box-shadow: 0 0 8px rgba(194, 148, 56, 0.5); 
+}
+
+.menu-toggle:hover {
+    transform: scale(1.08);
+}
+
+/* ==========================================================================
+   4. HERO CONTAINER SECTION (CINEMATIC SINGLE-IMAGE BACKGROUND)
+   ========================================================================== */
+.hero-section {
+    position: relative;
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+    overflow: hidden;
+    background: url('picture\ background.jpeg') no-repeat center center/cover;
+    background-color: #0b0b0b;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        rgba(11, 11, 11, 0.75) 0%, 
+        rgba(11, 11, 11, 0.50) 50%, 
+        rgba(11, 11, 11, 0.85) 100%
+    );
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    max-width: 700px;
+    z-index: 2;
+}
+
+.hero-welcome {
+    font-size: 16px !important;    
+    color: #c29438;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+    font-weight: 700;              
+}
+
+.hero-main-title {
+    font-size: 58px !important;    
+    font-weight: 400;              
+    margin-bottom: 19px;           
+    line-height: 1.4;
+}
+
+.hero-tagline {
+    font-size: 20px;
+    color: #eeeeee;
+    margin-bottom: 20px;
+}
+
+.hero-description {
+    font-size: 14px;
+    color: #aaaaaa;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.hero-btn-container {
+    display: inline-flex;
+    gap: 20px; 
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; 
+    margin-top: 10px;
+}
+
+/* Primary Gold Hero Button Style */
+.btn-gold-hero {
+    display: inline-flex;       
+    align-items: center;        
+    gap: 10px;                  
+    background-color: #c29438;
+    color: #ffffff;
+    border: 2px solid transparent; 
+    padding: 16px 32px;         
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.btn-search-icon {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    transition: transform 0.25s ease;
+}
+
+.btn-gold-hero:hover {
+    border-color: #ffffff; 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 20px rgba(194, 148, 56, 0.2); 
+}
+
+.btn-gold-hero:hover .btn-search-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.btn-gold-hero:active {
+    transform: translateY(0);
+}
+
+/* Secondary Contractor Outline Button */
+.btn-outline-hero {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff; 
+    padding: 16px 36px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.btn-contractor-icon {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    vertical-align: middle;
+    transition: transform 0.25s ease;
+}
+
+.btn-outline-hero:hover {
+    border-color: #c29438; 
+    background-color: rgba(194, 148, 56, 0.05); 
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.btn-outline-hero:hover .btn-contractor-icon {
+    transform: scale(1.05) translateY(-1px);
+}
+
+.btn-outline-hero:active {
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   5. ABOUT US & COMBINED SIDE-BY-SIDE DESIGN
+   ========================================================================== */
+#aboutUs {
+    scroll-margin-top: 90px !important; 
+}
+
+.about-section {
+    background-color: #0b0b0b; 
+    padding: 90px 40px;
+    border-bottom: 1px solid #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-container {
+    max-width: 900px; 
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-content .section-main-title-light {
+    font-size: 32px;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+}
+
+.about-paragraph {
+    font-size: 16px;
+    color: #b5b5b5;
+    line-height: 1.8; 
+    font-weight: 300;
+}
+
+/* Combined Layout Band */
+.about-services-combined {
+    background-color: #0b0b0b;
+    padding: 100px 40px;
+    border-bottom: 1px solid #1a1a1a;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 60px;
+    position: relative;
+    z-index: 2; /* Keeps this block layered over adjacent content bands */
+}
+
+.combined-wrapper {
+    max-width: 1300px;
+    width: 100%;
+    display: flex;
+    gap: 80px; 
+    align-items: flex-start;
+}
+
+.combined-left-brand {
+    flex: 1.2; 
+}
+
+.combined-left-brand .section-main-title-light {
+    font-size: 32px;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+    text-align: left;
+}
+
+.combined-left-brand .about-paragraph {
+    text-align: left;
+}
+
+.combined-right-services {
+    flex: 1; 
+}
+
+.services-mini-heading {
+    font-size: 24px;
+    color: #ffffff;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+}
+
+.services-tag-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 12px;
+}
+
+.service-tag-item {
+    background-color: #111111;
+    border: 1px solid #1a1a1a;
+    color: #cccccc;
+    padding: 14px 18px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.25s ease;
+}
+
+.service-tag-item:hover {
+    border-color: #c29438;
+    color: #ffffff;
+    background-color: #14120e;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   6. SERVICES CHOOSE INTERACTIVE GRID
+   ========================================================================== */
+.planning-section {
+    padding: 80px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-header-centered {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-subtitle-gold {
+    font-size: 11px;
+    color: #c29438;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.section-main-title-light {
+    font-size: 28px;
+    font-weight: 400;
+}
+
+.services-interactive-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.service-grid-card {
+    background-color: #111111;
+    border: 1px solid #1c1c1c;
+    border-radius: 8px;
+    padding: 25px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.service-grid-card:hover {
+    transform: translateY(-4px);
+    border-color: #c29438;
+}
+
+.card-image-wrapper {
+    position: relative;
+    height: 180px;
+    background-color: #222;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-icon-badge {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #111;
+    border: 1px solid #c29438;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.service-grid-card h3 {
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.service-grid-card p {
+    font-size: 13px;
+    color: #888888;
+    margin-top: 8px;
+}
+
+/* ==========================================================================
+   7. FEATURED CONTRACTORS DIRECTORY PANEL & CAROUSEL
+   ========================================================================== */
+.featured-contractors-section {
+    background-color: #f6f4ee;
+    color: #111111;
+    padding: 80px 40px;
+}
+
+.section-main-title-dark {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.section-desc-muted {
+    color: #666666;
+    font-size: 14px;
+}
+
+.contractors-directory-layout {
+    max-width: 1400px;
+    margin: 40px auto 0 auto;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 40px;
+}
+
+.directory-filter-sidebar {
+    background-color: #111111;
+    border-radius: 8px;
+    padding: 20px;
+    color: #ffffff;
+}
+
+.filter-list {
+    list-style: none;
+}
+
+.filter-item {
+    display: flex;
+    align-items: center;
+    padding: 14px 15px;
+    font-size: 13px;
+    color: #aaaaaa;
+    cursor: pointer;
+    border-radius: 6px;
+    margin-bottom: 6px;
+}
+
+.filter-item.active {
+    background-color: #bfa054;
+    color: #000000;
+    font-weight: 600;
+}
+
+.filter-item.active .filter-active-arrow {
+    margin-left: auto;
+}
+
+.btn-outline-view-all {
+    width: 100%;
+    background: transparent;
+    border: 1px solid #333;
+    color: #bfa054;
+    padding: 12px;
+    font-size: 11px;
+    border-radius: 6px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+/* CAROUSEL STRUCTURAL WRAPPERS */
+.directory-cards-carousel-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* Hides cards 4, 5, etc., until scrolled */
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+}
+
+.contractor-cards-container {
+    display: flex; /* Forces cards into a single row instead of vertical list */
+    gap: 20px; 
+    transition: transform 0.4s ease-in-out; 
+    width: 100%;
+}
+
+.contractor-showcase-card {
+    flex: 0 0 calc(33.333% - 14px); /* Forces each card to occupy roughly 1/3 of row width */
+    min-width: 300px; 
+    box-sizing: border-box;
+    background: #ffffff;
+    border: 1px solid #e1ded6;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.card-hero-img-box {
+    position: relative;
+    height: 150px;
+    background-color: #eee;
+}
+
+.card-hero-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-rating-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0,0,0,0.8);
+    color: #ffb800;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 4px;
+}
+
+.card-business-details {
+    padding: 25px 20px;
+    position: relative;
+}
+
+.business-logo-circle {
+    position: absolute;
+    top: -25px;
+    left: 20px;
+    width: 46px;
+    height: 46px;
+    background-color: #0b2240;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+.business-title {
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.business-category {
+    font-size: 12px;
+    color: #777777;
+    margin-bottom: 10px;
+}
+
+.business-summary {
+    font-size: 13px;
+    color: #444444;
+    line-height: 1.4;
+    height: 55px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.business-contact-info {
+    border-top: 1px solid #f0eee6;
+    padding-top: 12px;
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.contact-row {
+    font-size: 12px;
+}
+
+.link-view-profile {
+    font-size: 12px;
+    color: #bfa054;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.carousel-nav-arrow-btn {
+    position: absolute;
+    right: -20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* ==========================================================================
+   8. SIDE-BY-SIDE CONTACT & CONTRACTOR REGISTRATION FORM
+   ========================================================================== */
+/* ==========================================================================
+   PREMIUM CONTACT & SOCIAL CONNECT STYLES
+   ========================================================================== */
+.premium-contact-section {
+    background: #1a1a1a; /* Dark sleek premium brand background */
+    color: #ffffff;
+    padding: 60px 40px;
+    border-radius: 24px;
+    max-width: 1100px;
+    margin: 60px auto 20px auto;
+}
+
+.contact-container-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 50px;
+}
+
+.contact-subtitle-gold {
+    color: #d4af37;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.contact-info-column h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.contact-p-text {
+    color: #cccccc;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.contact-details-list .detail-item {
+    margin-bottom: 12px;
+    font-size: 15px;
+    color: #e1ded6;
+}
+
+.contact-social-column h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.contact-social-column p {
+    color: #cccccc;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.social-buttons-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* INTERACTIVE SOCIAL CARDS */
+.social-action-card {
+    display: flex;
+    align-items: center;
+    background: #262626;
+    border: 1px solid #333333;
+    padding: 15px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #ffffff;
+    transition: all 0.25s ease;
+}
+
+.social-icon {
+    font-size: 24px;
+    margin-right: 15px;
+}
+
+.social-meta h4 {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.social-meta p {
+    font-size: 12px;
+    color: #a39e93;
+    margin-bottom: 0;
+}
+
+/* Smooth hover physics transformations */
+.social-action-card:hover {
+    transform: translateX(5px);
+    background: #333333;
+}
+
+.insta-brand:hover { border-color: #e1306c; }
+.fb-brand:hover { border-color: #1877f2; }
+.ln-brand:hover { border-color: #0077b5; }
+/* Custom color hover parameters for communication nodes */
+.phone-brand:hover { 
+    border-color: #d4af37; /* Gold brand match on hover */
+    background: #222222;
+}
+/* TikTok neon boundary color styling rules */
+.tiktok-brand:hover {
+    border-color: #ff0050; /* Signature TikTok Neon Red/Cyan accent marker */
+    background: #19222b;   /* Deep slate-dark background variance */
+}
+/* Generous premium spacing between individual communication button blocks */
+.social-buttons-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px; /* Pushes the blocks further apart horizontally/vertically */
+}
+
+/* Optional: Adds a slightly softer interior padding so the text inside feels perfectly balanced */
+.social-action-card {
+    padding: 16px 24px; /* More breathing room inside the boxes */
+}
+.whatsapp-brand:hover { 
+    border-color: #25d366; /* Official WhatsApp Green branding boundary */
+    background: #1c2e24; /* Subtle dark green blend */
+}
+.contractor-join-section {
+    background-color: #0b0b0b;
+    padding: 100px 20px;
+    border-top: 1px solid #1a1a1a;
+    scroll-margin-top: 90px;
+}
+
+.form-section-container {
+    max-width: 1200px; 
+    margin: 0 auto;
+}
+
+.contact-split-wrapper {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+/* Left Contact Info Column Layout */
+.contact-info-column {
+    flex: 1;
+    color: #ffffff;
+}
+
+.contact-panel-desc {
+    color: #aaaaaa;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 20px 0 40px 0;
+}
+
+.detailed-contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.info-item-row {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.info-icon-box {
+    font-size: 24px;
+    background-color: #111111;
+    border: 1px solid #1a1a1a;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    color: #c29438;
+}
+
+.info-text-box h4 {
+    font-size: 14px;
+    color: #c29438; /* Gold labels */
+    margin: 0 0 4px 0;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.info-text-box p {
+    font-size: 16px;
+    color: #ffffff;
+    margin: 0;
+}
+
+/* Right Premium Input Form Column Layout */
+.contact-form-column {
+    flex: 1.2;
+    background-color: #111111;
+    border: 1px solid #1a1a1a;
+    padding: 40px;
+    border-radius: 8px;
+}
+
+.form-header-internal {
+    margin-bottom: 25px;
+}
+
+.form-mini-title {
+    font-size: 26px;
+    color: #ffffff;
+    margin: 5px 0 0 0;
+}
+
+.premium-contractor-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row-double {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.form-group label {
+    color: #c29438;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.form-group input, 
+.form-group select {
+    background-color: #0b0b0b;
+    border: 1px solid #222222;
+    padding: 14px 16px;
+    color: #ffffff;
+    font-size: 15px;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.form-group input:focus, 
+.form-group select:focus {
+    border-color: #c29438;
+}
+
+.form-submit-btn-gold {
+    background-color: #c29438;
+    color: #000000;
+    border: none;
+    padding: 16px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    margin-top: 10px;
+}
+
+.form-submit-btn-gold:hover {
+    background-color: #dfad46;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   9. LOCATION AUTOCOMPLETE INTERFACE
+   ========================================================================== */
+.location-autocomplete-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #111111;
+    border: 1px solid #222222;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    max-height: 220px;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+    display: none; 
+}
+
+.suggestion-item {
+    padding: 12px 16px;
+    color: #cccccc;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: left;
+    border-bottom: 1px solid #1a1a1a;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.suggestion-item:last-child {
+    border-bottom: none;
+}
+
+.suggestion-item:hover {
+    background-color: #1d1a15; 
+    color: #c29438; 
+}
+
+/* ==========================================================================
+   10. TRUST METRICS BOTTOM BAR
+   ========================================================================== */
+.trust-metrics-footer-bar {
+    background: #000000;
+    padding: 40px;
+    border-top: 1px solid #111;
+}
+
+.metrics-grid-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.metric-badge-item {
+    display: flex;
+    gap: 15px;
+}
+
+.badge-icon {
+    font-size: 22px;
+}
+
+.badge-text-box h4 {
+    font-size: 13px;
+    color: #fff;
+    margin-bottom: 3px;
+}
+
+.badge-text-box p {
+    font-size: 11px;
+    color: #666666;
+    line-height: 1.4;
+}
+
+/* ==========================================================================
+   11. DRAWER & MODAL HIDDEN WINDOW PROTECTION
+   ========================================================================== */
+.slideout-drawer {
+    position: fixed;
+    top: 0;
+    left: -340px; 
+    width: 320px;
+    height: 100%;
+    background-color: #111111;
+    border-right: 1px solid #222;
+    padding: 60px 0;
+    z-index: 10000;
+    transition: left 0.35s ease;
+}
+
+.slideout-drawer.drawer-open {
+    left: 0; 
+}
+
+.close-drawer-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+.drawer-title {
+    font-size: 12px;
+    color: #c29438;
+    letter-spacing: 2px;
+    padding: 0 25px 15px 25px;
+    border-bottom: 1px solid #222;
+}
+
+.drawer-menu-list {
+    list-style: none;
+}
+
+.drawer-menu-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 18px 25px;
+    font-size: 14px;
+    border-bottom: 1px solid #161616;
+    cursor: pointer;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    z-index: 10001;
+    opacity: 0;              
+    pointer-events: none;     
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.modal-open {
+    opacity: 1;
+    pointer-events: auto;    
+}
+
+/* ==========================================================================
+   12. RESPONSIVE MEDIA BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .contractors-directory-layout, 
+    .services-interactive-grid, 
+    .contractor-cards-container, 
+    .metrics-grid-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 992px) {
+    .combined-wrapper {
+        flex-direction: column;
+        gap: 50px;
+    }
+    .services-tag-grid {
+        grid-template-columns: 1fr; 
+    }
+}
+
+@media (max-width: 900px) {
+    .contact-split-wrapper {
+        flex-direction: column;
+        gap: 50px;
+    }
+    
+    .contact-form-column {
+        width: 100%;
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-section {
+        padding: 60px 20px;
+    }
+    .about-content .section-main-title-light {
+        font-size: 26px;
+    }
+    .about-paragraph {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .form-row-double {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+/* ==========================================================================
+   PLATFORM RATING SECTION STYLING
+   ========================================================================== */
+.platform-rating-section {
+    background-color: #0b0b0b;
+    padding: 60px 0;
+    border-top: 1px solid #1a1a1a;
+}
+
+.rating-box-centered {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.platform-star-row {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.platform-star {
+    font-size: 36px;
+    color: #333333;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.platform-star:hover {
+    transform: scale(1.2);
+    color: #d4af37;
+}
+
+.platform-star.active {
+    color: #c29438;
+}
+
+.platform-rating-form textarea {
+    width: 100%;
+    background-color: #111111;
+    border: 1px solid #222222;
+    border-radius: 8px;
+    padding: 14px;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 14px;
+    resize: none;
+    outline: none;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.platform-rating-form textarea:focus {
+    border-color: #c29438;
+}.clickable-email-link {
+    color: inherit; /* Keeps the text white/grey matching your current layout */
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.clickable-email-link:hover {
+    color: #c29438; /* Turns gold when hovered over so users know it's interactive */
+    text-decoration: underline;
+}/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES FOR HOMEPAGE (style.css)
+   ========================================================================== */
+
+/* 💻 LAPTOPS & TABLETS (Screens under 1024px wide) */
+@media screen and (max-width: 1024px) {
+    .combined-wrapper, .contact-split-wrapper {
+        flex-direction: column; /* Stack side-by-side elements vertically */
+        gap: 40px;
+        padding: 40px 20px;
+    }
+    
+    .contact-info-column, .contact-form-column {
+        width: 100%; /* Take up full width on tablets */
+    }
+
+    .hero-main-title {
+        font-size: 48px; /* Slightly shrink hero text */
+    }
+}
+
+/* 📱 SMARTPHONES (Screens under 768px wide) */
+@media screen and (max-width: 768px) {
+    /* Hide standard desktop horizontal links */
+    .nav-links {
+        display: none; 
+    }
+    
+    /* Make hamburger menu visible on mobile */
+    .menu-toggle {
+        display: flex;
+    }
+
+    .hero-section {
+        padding: 140px 20px 80px 20px;
+        text-align: center;
+    }
+
+    .hero-btn-container {
+        flex-direction: column; /* Stack "Find Contractor" and "Join" buttons */
+        gap: 15px;
+        width: 100%;
+    }
+
+    .btn-gold-hero, .btn-outline-hero {
+        width: 100%; /* Buttons take up full screen width on mobile */
+        justify-content: center;
+    }
+
+    .services-interactive-grid {
+        grid-template-columns: 1fr; /* Force specialization cards into 1 column */
+        gap: 20px;
+    }
+
+    .form-row-double {
+        grid-template-columns: 1fr; /* Forms stack inputs into a single column */
+        gap: 0;
+    }
+
+    .metrics-grid-container {
+        grid-template-columns: 1fr; /* Footer features stack vertically */
+        gap: 25px;
+        text-align: center;
+    }
+}

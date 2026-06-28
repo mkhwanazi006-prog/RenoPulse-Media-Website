@@ -1,0 +1,394 @@
+/* ==========================================================================
+   EXCLUSIVE DIRECTORY PAGE STYLES - TOTAL ISOLATION
+   ========================================================================== */
+.dir-body {
+    background-color: #0b0b0b;
+    color: #ffffff;
+    font-family: system-ui, -apple-system, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.dir-header {
+    background-color: #111111;
+    padding: 20px 40px;
+    border-bottom: 1px solid #1a1a1a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dir-logo {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.dir-gold {
+    color: #c29438;
+}
+
+.dir-back-btn {
+    color: #c29438;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: opacity 0.2s;
+}
+
+.dir-back-btn:hover {
+    opacity: 0.8;
+}
+
+.dir-banner {
+    text-align: center;
+    padding: 60px 20px 40px 20px;
+}
+
+.dir-subtitle {
+    color: #c29438;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin: 0 0 10px 0;
+}
+
+.dir-title {
+    font-size: 38px;
+    margin: 0 0 10px 0;
+    text-transform: capitalize;
+    color: #ffffff;
+}
+
+.dir-desc {
+    color: #aaaaaa;
+    font-size: 16px;
+    margin: 0;
+}
+
+.dir-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 100px 20px;
+}
+
+.dir-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+/* Exclusive Injected Card Styling */
+.exclusive-card {
+    background-color: #111111;
+    border: 1px solid #1a1a1a;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.exclusive-img-box {
+    position: relative;
+    height: 220px;
+    width: 100%;
+}
+
+.exclusive-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.exclusive-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.85);
+    color: #c29438;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.exclusive-details {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.exclusive-biz-name {
+    margin: 0 0 6px 0;
+    font-size: 22px;
+    color: #ffffff;
+}
+
+.exclusive-biz-tag {
+    margin: 0 0 15px 0;
+    color: #c29438;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.exclusive-biz-desc {
+    margin: 0 0 20px 0;
+    color: #aaaaaa;
+    font-size: 14px;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.exclusive-contact-panel {
+    border-top: 1px solid #1a1a1a;
+    padding-top: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+    color: #cccccc;
+}
+
+.exclusive-action-btn {
+    color: #c29438;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    display: inline-block;
+}
+
+.exclusive-action-btn:hover {
+    text-decoration: underline;
+}
+
+.dir-fallback-box {
+    display: none;
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #111111;
+    border: 1px solid #1a1a1a;
+    border-radius: 8px;
+    color: #aaaaaa;
+}
+
+.dir-join-link {
+    color: #c29438;
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   CLIENT SEARCH BAR LAYOUT STYLE
+   ========================================================================== */
+.client-search-wrapper {
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    padding: 0 20px;
+}
+
+.search-input-relative {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#clientContractorSearch {
+    width: 100%;
+    padding: 16px 24px 16px 52px;
+    border: 1px solid #e1ded6;
+    border-radius: 30px;
+    font-size: 15px;
+    outline: none;
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    color: #333333;
+}
+
+#clientContractorSearch:focus {
+    border-color: #d4af37;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
+}
+
+.search-icon-svg {
+    position: absolute;
+    left: 20px;
+    width: 20px;
+    height: 20px;
+    color: #a39e93;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   CONTRACTORS.CSS RESIZING & PICTURE REFINEMENT
+   ========================================================================== */
+
+/* 1. Target the main parent container grid on your contractors page */
+.contractors-grid, 
+.contractor-list, 
+#contractorsContainer,
+.contractor-grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 350px));
+    gap: 32px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 24px;
+    justify-content: center;
+}
+
+/* 2. Target the individual contractor profile cards */
+.contractor-card {
+    background: #ffffff;
+    border: 1px solid #e1ded6;
+    border-radius: 16px;
+    overflow: hidden; /* 💡 FIXED: Clips the child image corners to fit the card radius */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+    justify-content: transform;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    max-width: 350px; 
+    width: 100%;
+}
+/* ==========================================================================
+   CONTRACTORS.CSS - CLEAN SMALL PROFILE PHOTO CARD LAYOUT
+   ========================================================================== */
+
+/* 1. Target the main parent container grid on your contractors page */
+.contractors-grid, 
+.contractor-list, 
+#contractorsContainer,
+.contractor-grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
+    gap: 32px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 24px;
+    justify-content: center;
+}
+
+/* 2. Individual Contractor Card Adjustment */
+.contractor-card {
+    background: #ffffff;
+    border: 1px solid #e1ded6;
+    border-radius: 16px;
+    overflow: visible; /* Allows badges or absolute layers to gracefully float if needed */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+    padding: 24px; /* Gives the card internal breathing room */
+    box-sizing: border-box;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    position: relative;
+}
+
+/* 3. Small Profile Photo Wrapper Frame */
+.card-hero-img-box {
+    position: relative;
+    width: 90px;         /* Small profile picture width */
+    height: 90px;        /* Small profile picture height */
+    border-radius: 12px; /* Smooth rounded corners for the thumbnail */
+    overflow: hidden;
+    margin-bottom: 16px; /* Pushes text below it clean */
+    border: 2px solid #e1ded6;
+    background-color: #f9f9f9;
+}
+
+/* 4. Strict Image Resizing Rule */
+.card-hero-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* Crops cleanly inside the 90x90 square without squeezing */
+    display: block;
+}
+
+/* 5. Rating Badge Positioning Adjustment */
+.card-rating-badge {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: rgba(0, 0, 0, 0.05);
+    color: #c29438;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+/* 6. Card Core Content Alignment Blocks */
+.card-business-details {
+    padding: 0; /* Padding is now managed cleanly by the parent card container */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    color: #333333;
+}
+
+/* Interactive Hover Transformation Layer */
+.contractor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+    border-color: #c29438;
+}
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES FOR DIRECTORY & PROFILES (contractors.css)
+   ========================================================================== */
+
+/* 📱 TABLETS & SMARTPHONES (Screens under 768px wide) */
+@media screen and (max-width: 768px) {
+    .dir-header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .dir-banner {
+        padding: 40px 15px 20px 15px;
+    }
+
+    .dir-title {
+        font-size: 28px; /* Clean, smaller typography for mobile screens */
+    }
+
+    /* Keep the grid centered and structured on small mobile devices */
+    .contractors-grid {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
+    }
+
+    .contractor-card {
+        max-width: 100%; /* Allow cards to adjust flexibly dynamically */
+    }
+
+    /* Adjust profile page layout components for mobile viewing */
+    .profile-main-layout {
+        padding: 15px;
+    }
+
+    .profile-hero-banner {
+        height: 180px; /* Make profile top image a bit shorter on phone screens */
+    }
+
+    .profile-metadata-row {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .profile-action-cta-box {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .cta-button-gold {
+        width: 100%;
+        text-align: center;
+    }
+}

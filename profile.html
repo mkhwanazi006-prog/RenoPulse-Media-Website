@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contractor Profile | RenoPulse Media</title>
+    <link rel="stylesheet" href="contractors.css">
+    <link rel="icon" type="image/png" href="pictures/logo.jpeg">
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body class="profile-body-theme">
+
+    <!-- ==========================================================================
+         SECTION 1: NAVIGATION HEADER
+         ========================================================================== -->
+    <header class="profile-header-nav">
+        <div class="profile-brand-logo">Reno<span class="gold-text">Pulse</span> Media</div>
+        <a href="javascript:history.back()" class="profile-back-link">&larr; Back to Listings</a>
+    </header>
+
+    <!-- ==========================================================================
+         SECTION 2: HYDRATED CONTENT SHOWCASE MAIN LAYOUT
+         ========================================================================== -->
+    <main class="profile-main-layout">
+        
+        <div id="profileContainer" class="profile-card-container">
+            <div class="profile-hero-banner">
+                <img id="profHeroImg" src="" alt="Contractor Portfolio">
+                <span id="profRating" class="profile-rating-badge"></span>
+            </div>
+
+            <div class="profile-content-padding">
+                <span id="profTag" class="profile-trade-tag"></span>
+                <h1 id="profName" class="profile-business-heading"></h1>
+                
+                <div class="profile-metadata-row">
+                    <span><strong class="text-white">Location:</strong> <span id="profLocation"></span></span>
+                    <span><strong class="text-white">Contact:</strong> <span id="profPhone"></span></span>
+                </div>
+
+                <h3 class="profile-section-subheading">About the Business</h3>
+                <p id="profDesc" class="profile-description-text"></p>
+
+                <div class="profile-action-cta-box">
+                    <div>
+                        <h4 class="cta-box-title">Ready to start your project?</h4>
+                        <p class="cta-box-desc">Get in touch directly with this contractor to request a quotation.</p>
+                        <p class="cta-box-desc"></p>
+                    </div>
+                    <a id="profCallBtn" href="" class="cta-button-gold">Call Contractor</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- System Profile Load Error Fallback Component Wrapper -->
+        <div id="profileError" class="profile-error-fallback">
+            <h3>Profile Not Found</h3>
+            <p class="error-fallback-desc">The contractor profile you are looking for could not be verified or loaded.</p>
+            <a href="index.html" class="error-return-link">Return to Homepage</a>
+        </div>
+
+    </main>
+
+    <script src="contractors.js"></script>
+</body>
+</html>
