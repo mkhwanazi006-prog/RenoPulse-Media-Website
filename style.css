@@ -228,6 +228,29 @@ section[id] {
         padding: 0 20px;
     }
 }
+/* ==========================================================================
+   MOBILE VIEWPORT BREAKPOINT CONFIGURATION (Under 768px Width)
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+    
+    /* 💡 NEW: Hides the Our Expertise section entirely on mobile layouts */
+    .expertise-section, #expertise, .our-expertise-container {
+        display: none !important;
+    }
+
+    /* ... Keep your existing mobile rules here ... */
+    .nav-links {
+        display: none !important;
+    }
+
+    .logo-area, .brand-logo-img {
+        display: none !important;
+    }
+
+    .menu-toggle {
+        display: flex !important; 
+    }
+}
 
 .menu-toggle span {
     display: block;
