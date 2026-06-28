@@ -126,34 +126,51 @@ section[id] {
 .nav-item:hover {
     color: #c29438;
 }
+/* ==========================================================================
+   HAMBURGER DRAWER TRANSITION STATES
+   ========================================================================== */
 
-/* HAMBURGER INTERACTIVE HOVER ENGINE */
+/* Base configuration for the slideout drawer (Hidden off-screen left by default) */
+.slideout-drawer {
+    position: fixed;
+    top: 0;
+    left: -300px; /* Adjust this width based on your drawer's exact width */
+    width: 300px;
+    height: 100%;
+    background-color: #111111;
+    border-right: 1px solid #1a1a1a;
+    z-index: 9999; /* Higher than headers to slide over everything */
+    transition: left 0.4s cubic-bezier(0.25, 1, 0.5, 1); /* Premium fluid motion */
+    box-shadow: 5px 0 25px rgba(0,0,0,0.5);
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+/* 💡 Activated state triggered via JavaScript */
+.slideout-drawer.active {
+    left: 0; 
+}
+
+/* Make hamburger toggle lines stand out as an interactive element */
 .menu-toggle {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;                   
     cursor: pointer;
-    z-index: 1000;
-    padding: 10px;              /* Creates an invisible, larger hit-box area for easy clicking */
-    transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+    display: none; /* Managed by your mobile media queries to appear under 768px */
+    flex-direction: column;
+    gap: 5px;
 }
 
 .menu-toggle span {
     display: block;
-    width: 28px;                
-    height: 3px;                
-    background-color: #ffffff;  
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
     border-radius: 2px;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
 }
 
+/* Optional: Slight gold hover accent on the bars */
 .menu-toggle:hover span {
-    background-color: #c29438;  
-    box-shadow: 0 0 8px rgba(194, 148, 56, 0.5); 
-}
-
-.menu-toggle:hover {
-    transform: scale(1.08);
+    background-color: #c29438;
 }
 
 /* ==========================================================================
